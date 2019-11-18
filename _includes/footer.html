@@ -1,0 +1,37 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+<script src="js/languageSelector.jquery.js"></script>
+<script src="js/quoter.jquery.js"></script>
+<script src="js/latin2Arabic.jquery.js"></script>
+<script src="js/dateRenderer.jquery.js"></script>
+<script src="js/aboutOverlay.jquery.js"></script>
+<script src="js/vendors.jquery.js"></script>
+<script>
+  $(function(){
+    var max = 4;
+    var min = 1;
+    var quoteID = Math.floor(Math.random() * (max - min + 1)) + min;
+    $.getJSON( "https://library-api.service.vafta.com/_/items/quotes/" + quoteID + "?fields=*.*.*&_ts=<?=time();?>", function( data ) {
+      $.languageSelector.init(data.data.translations);
+      $.quoter.init(data.data);
+      $.aboutOverlay.init();
+      $.vendors.init(data.vendors);
+    });
+    $.getJSON( "https://api.aladhan.com/v1/gToH", function( data ) {
+      $.dateRenderer.init(data.data);
+    });
+  });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3749682-38"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3749682-38');
+</script>
+
+</body>
