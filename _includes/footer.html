@@ -10,9 +10,17 @@
 <script src="js/vendors.jquery.js"></script>
 <script>
   $(function(){
-    var max = 4;
-    var min = 1;
-    var quoteID = Math.floor(Math.random() * (max - min + 1)) + min;
+    var urlParams = new URLSearchParams(window.location.search);
+    if (
+      urlParams.has('quote') && 
+      parseInt(urlParams.get('quote'), 10) <= max &&
+      parseInt(urlParams.get('quote'), 10) >= min
+    ) 
+    {
+      var quoteID = parseInt(urlParams.get('quote'), 10);
+    } else {
+      var quoteID = Math.floor(Math.random() * (max - min + 1)) + min;
+    }
     $.getJSON( "https://library-api.service.vafta.com/_/items/quotes/" + quoteID + "?fields=*.*.*&_ts=<?=time();?>", function( data ) {
       $.languageSelector.init(data.data.translations);
       $.quoter.init(data.data);
