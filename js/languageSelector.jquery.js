@@ -31,12 +31,14 @@ jQuery( document ).ready( function( $ ) {
         generateHtml: function() {
             var w = this;
             var html = '';
+            var usedLangs = [];
             $.each(w._languages, function(i,v) {
                 var flag = w._flags[v];
                 var name = w._names[v];
-                if (name != 'English') {
+                if (!usedLangs.includes(name)) {
                     html += "<option data-content='<span class=\"flag-icon flag-icon-" + flag + "\"></span> " + name + "'>" + name + "</option>";
                 }
+                usedLangs.push(name);
             });
             w._html = html;
         },
