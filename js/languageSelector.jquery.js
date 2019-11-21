@@ -34,7 +34,9 @@ jQuery( document ).ready( function( $ ) {
             $.each(w._languages, function(i,v) {
                 var flag = w._flags[v];
                 var name = w._names[v];
-                html += "<option data-content='<span class=\"flag-icon flag-icon-" + flag + "\"></span> " + name + "'>" + name + "</option>";
+                if (name != 'English') {
+                    html += "<option data-content='<span class=\"flag-icon flag-icon-" + flag + "\"></span> " + name + "'>" + name + "</option>";
+                }
             });
             w._html = html;
         },
