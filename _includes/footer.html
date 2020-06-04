@@ -21,7 +21,7 @@
     } else {
       var quoteID = Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    $.getJSON( "https://directus.service.vafta.com/_/items/quotes/" + quoteID + "?fields=*.*.*&_ts=<?=time();?>", function( data ) {
+    $.getJSON( "https://library.meezaan.net/_/items/quotes/" + quoteID + "?fields=*.*.*&_ts=<?=time();?>", function( data ) {
       $.languageSelector.init(data.data.translations);
       $.quoter.init(data.data);
       $.aboutOverlay.init();
