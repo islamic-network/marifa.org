@@ -10,7 +10,7 @@
 <script src="js/vendors.jquery.js"></script>
 <script>
   $(function(){
-    $.getJSON( "https://library.meezaan.net/_/items/quotes/?fields=*.*.*&sort=?&_ts=<?=time();?>", function( data ) {
+    $.getJSON( "https://library.meezaan.net/_/items/quotes?fields=*.*.*&sort=?&_ts=<?=time();?>", function( data ) {
       $.languageSelector.init(data.data.translations);
       $.quoter.init(data.data);
       $.aboutOverlay.init();
