@@ -10,18 +10,7 @@
 <script src="js/vendors.jquery.js"></script>
 <script>
   $(function(){
-    var urlParams = new URLSearchParams(window.location.search);
-    if (
-      urlParams.has('quote') && 
-      parseInt(urlParams.get('quote'), 10) <= max &&
-      parseInt(urlParams.get('quote'), 10) >= min
-    ) 
-    {
-      var quoteID = parseInt(urlParams.get('quote'), 10);
-    } else {
-      var quoteID = Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    $.getJSON( "https://library.meezaan.net/_/items/quotes/" + quoteID + "?fields=*.*.*&_ts=<?=time();?>", function( data ) {
+    $.getJSON( "https://library.meezaan.net/_/items/quotes/?fields=*.*.*&sort=?&_ts=<?=time();?>", function( data ) {
       $.languageSelector.init(data.data.translations);
       $.quoter.init(data.data);
       $.aboutOverlay.init();
