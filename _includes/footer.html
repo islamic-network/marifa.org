@@ -13,7 +13,7 @@
     var string = "https://library.meezaan.net/_/items/quotes?fields=*.*.*&_ts=<?=time();?>&limit=1&sort=" + encodeURIComponent("?");
     $.getJSON(string, function( data ) {
       $.languageSelector.init(data.data.translations);
-      $.quoter.init(data.data);
+      $.quoter.init(data.data[0]);
       $.aboutOverlay.init();
       $.vendors.init(data.vendors);
     });
