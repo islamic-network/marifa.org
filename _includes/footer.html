@@ -7,7 +7,7 @@
 <script src="js/latin2Arabic.jquery.js"></script>
 <script src="js/dateRenderer.jquery.js"></script>
 <script src="js/aboutOverlay.jquery.js"></script>
-<script src="js/vendors.jquery.js"></script>
+<!--<script src="js/vendors.jquery.js"></script>-->
 <script>
   $(function(){
     var string = "https://library.meezaan.net/_/items/quotes?fields=*.*.*&_ts=<?=time();?>&limit=1&sort=" + encodeURIComponent("?");
@@ -15,7 +15,7 @@
       $.languageSelector.init(data.data[0].translations);
       $.quoter.init(data.data[0]);
       $.aboutOverlay.init();
-      $.vendors.init(data.vendors);
+      // $.vendors.init(data.vendors);
     });
     $.getJSON( "https://api.aladhan.com/v1/gToH", function( data ) {
       $.dateRenderer.init(data.data);
