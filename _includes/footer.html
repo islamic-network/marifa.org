@@ -11,7 +11,7 @@
 <script>
   $(function(){
     var string = "https://library.meezaan.net/_/items/quotes?fields=*.*.*&_ts=<?=time();?>&sort=" + encodeURIComponent("?");
-    $.getJSON(string), function( data ) {
+    $.getJSON(string, function( data ) {
       $.languageSelector.init(data.data.translations);
       $.quoter.init(data.data);
       $.aboutOverlay.init();
