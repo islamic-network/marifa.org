@@ -5,16 +5,16 @@ jQuery( document ).ready( function( $ ) {
             "ar"
         ],
         _names: {
-            "English" : "en",
-            "Persian": "fa",
-            "Arabic": "ar",
-            "French": "fr",
-            "German" : "de"
+            "English" : "en-US",
+            "Persian": "fa-IR",
+            "Arabic": "ar-AE",
+            "French": "fr-FR",
+            "German" : "de-DE"
         },
         _cssIdQuote: '#quote',
         _cssIdSource: '#source',
         _cssIdLanguage: '#languagepicker',
-        _currentLanguage: 'en',
+        _currentLanguage: 'en-US',
         _quoteObj: null,
         init: function(quoteObj) {
             this._quoteObj = quoteObj;
@@ -30,8 +30,8 @@ jQuery( document ).ready( function( $ ) {
         },
         render: function() {
             var w = this;
-            if (w._currentLanguage == 'en') {                
-                $(this._cssIdQuote).text(this._quoteObj.quote);
+            if (w._currentLanguage == 'en-US') {                
+                $(this._cssIdQuote).text(this._quoteObj.text);
                 $(this._cssIdSource).text('-- ' + this._quoteObj.reference);
                 w.rtlRenderer();
                 w.fontRenderer();

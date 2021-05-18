@@ -8,9 +8,10 @@
 <script src="js/dateRenderer.jquery.js"></script>
 <script src="js/aboutOverlay.jquery.js"></script>
 <!--<script src="js/vendors.jquery.js"></script>-->
+<!-- https://ilm.islamic.network/items/quotes?fields=text,reference,translations,author.name-->
 <script>
   $(function(){
-    var string = "https://library.meezaan.net/_/items/quotes?fields=*.*.*&_ts=<?=time();?>&limit=1&sort=" + encodeURIComponent("?");
+    var string = "https://ilm.islamic.network/items/quotes?fields=text,reference,translations,author.name&limit=1";
     $.getJSON(string, function( data ) {
       $.languageSelector.init(data.data[0].translations);
       $.quoter.init(data.data[0]);
