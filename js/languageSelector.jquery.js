@@ -1,28 +1,28 @@
 jQuery( document ).ready( function( $ ) {
     $.languageSelector = {
         _flags: {
-            "fa": "ir",
-            "ar": "ae",
-            "en": "gb",
-            "fr": "fr",
-            "de": "de"
+            "fa-IR": "ir",
+            "ar-AE": "ae",
+            "en-US": "gb",
+            "fr-FR": "fr",
+            "de-DE": "de"
         },
         _names: {
-            "en": "English",
-            "fa": "Persian",
-            "ar": "Arabic",
-            "fr": "French",
-            "de": "German"
+            "en-US": "English",
+            "fa-IR": "Persian",
+            "ar-AE": "Arabic",
+            "fr-FR": "French",
+            "de-DE": "German"
         },
         _cssIdentifier: '#languagepicker',
         _parentDivCssIdentifier: '#languageselector',
-        _defaultLang: 'en',
+        _defaultLang: 'en-US',
         _languages: null,
         init: function(translations) {
             var languages = [];
-            languages.push('en');
+            languages.push('en-US');
             $.each(translations, function(i,v) {
-                languages.push(v.language_code);
+                languages.push(v.languages_code);
             });
             this._languages = languages;
             this.generateHtml();

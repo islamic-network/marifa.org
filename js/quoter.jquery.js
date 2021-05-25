@@ -1,8 +1,8 @@
 jQuery( document ).ready( function( $ ) {
     $.quoter = {
         _rtl: [
-            "fa",
-            "ar"
+            "fa-IR",
+            "ar-AE"
         ],
         _names: {
             "English" : "en-US",
@@ -37,9 +37,9 @@ jQuery( document ).ready( function( $ ) {
                 w.fontRenderer();
             } else {
                 $.each(w._quoteObj.translations, function(i, v) {
-                    if (w._currentLanguage == v.language_code) {
-                        $(w._cssIdQuote).text(v.quote);
-                        $(w._cssIdSource).text('-- ' + v.reference);
+                    if (w._currentLanguage == v.languages_code) {
+                        $(w._cssIdQuote).text(v.text);
+                        //$(w._cssIdSource).text('-- ' + v.reference);
                         w.rtlRenderer();
                         w.fontRenderer();
                         return false;
@@ -61,10 +61,10 @@ jQuery( document ).ready( function( $ ) {
         },
         fontRenderer: function() {
             var w = this;
-            if (w._currentLanguage == 'ar') {
+            if (w._currentLanguage == 'ar-AE') {
                 $(this._cssIdQuote).addClass('ar').removeClass('fa').removeClass('en').removeClass('fr').removeClass('de');
                 $(this._cssIdSource).addClass('ar').removeClass('fa').removeClass('en').removeClass('fr').removeClass('de');;
-            } else if (w._currentLanguage == 'fa') {
+            } else if (w._currentLanguage == 'fa-IR') {
                 $(this._cssIdQuote).addClass('fa').removeClass('ar').removeClass('en').removeClass('fr').removeClass('de');
                 $(this._cssIdSource).addClass('fa').removeClass('ar').removeClass('en').removeClass('fr').removeClass('de');;
             } else {
