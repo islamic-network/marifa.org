@@ -11,7 +11,7 @@
 <!-- https://ilm.islamic.network/items/quotes?fields=text,reference,translations,author.name-->
 <script>
   $(function(){
-    var maxQuote = Math.floor(Math.random() * (54 - 1 + 1)) + 1;
+    var maxQuote = Math.floor(Math.random() * (58 - 1 + 1)) + 1;
     if (maxQuote == 0) { maxQuote = 1; }
     var string = "https://ilm.islamic.network/items/quotes/" + maxQuote + "?fields=text,reference,translations.*,author.name";
     $.getJSON(string, function( data ) {
